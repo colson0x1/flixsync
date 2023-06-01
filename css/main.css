@@ -56,3 +56,11 @@ figure .image img {
   color: #68a9e3; /* Light blue */
 }
 
+.left-autocomplete, .right-autocomplete {
+  background: linear-gradient(to bottom, #e50914, #a89b9c);
+  color: #68a9e3; /* Light blue */
+}
+
+.tutorial {
+  background: linear-gradient(to bottom, #b9090b, #8a0f0f);
+}
