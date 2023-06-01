@@ -48,5 +48,11 @@ figure .image img {
 }
 
 .hero-body {
-  background: linear-gradient(to bottom, #b9090b, #8a0f0f);
+  background: linear-gradient(to bottom, #e50914, #b9090b);
 }
+
+.article-background {
+  background: linear-gradient(to bottom, #e50914, #a89b9c);
+  color: #68a9e3; /* Light blue */
+}
+
