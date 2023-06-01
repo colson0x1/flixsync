@@ -1,3 +1,5 @@
+import { apiKey } from './apiKey.js';
+
 const autoCompleteConfig = {
   renderOption: (movie) => {
     const imgSrc = movie.Poster === 'N/A' ? '' : movie.Poster;
@@ -11,7 +13,7 @@ const autoCompleteConfig = {
     return movie.Title;
   },
   fetchData: async (searchQuery) => {
-    const apiKey = await import('./apiKey.js').then((module) => module.apiKey);
+    // const apiKey = await import('./apiKey.js').then((module) => module.apiKey);
     const response = await axios.get('http://www.omdbapi.com/', {
       params: {
         apikey: apiKey,
@@ -80,7 +82,7 @@ const runComparison = () => {
 
   leftSideStats.forEach((leftStat, index) => {
     const rightStat = rightSideStats[index];
-    
+
     const leftSideValue = parseInt(leftStat.dataset.value);
     const rightSideValue = parseInt(rightStat.dataset.value);
 
@@ -88,8 +90,8 @@ const runComparison = () => {
       leftStat.classList.remove('is-primary');
       leftStat.classList.add('is-warning');
     } else {
-       rightStat.classList.remove('is-primary');
-       rightStat.classList.add('is-warning');
+      rightStat.classList.remove('is-primary');
+      rightStat.classList.add('is-warning');
     }
   });
 };
