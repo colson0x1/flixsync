@@ -1,4 +1,4 @@
-import { apiKey } from './apiKey.js';
+// import { apiKey } from './apiKey.js';
 
 const autoCompleteConfig = {
   renderOption: (movie) => {
@@ -13,7 +13,7 @@ const autoCompleteConfig = {
     return movie.Title;
   },
   fetchData: async (searchQuery) => {
-    // const apiKey = await import('./apiKey.js').then((module) => module.apiKey);
+    const apiKey = await import('./apiKey.js').then((module) => module.apiKey);
     const response = await axios.get('http://www.omdbapi.com/', {
       params: {
         apikey: apiKey,
