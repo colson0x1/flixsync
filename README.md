@@ -36,6 +36,21 @@ $ cd flixSync
 3. JavaScript
 4. OMDB API
 
+## Acknowledgment
+
+I would like to acknowledge the following resources and contributors that have been instrumental in the development of this project:
+
+- [Open Movie Database (OMDB) API](https://www.omdbapi.com/) - The API used to fetch movie information.
+- [Bulma Framework](https://bulma.io/) - The CSS framework used for styling the web app.
+- [GitHub](https://github.com/) - The platform that hosts the repository and enables collaborative development.
+- [Imgur](https://imgur.com/) - The image hosting service used for displaying screenshots in the README.
+
+I would also like to express my gratitude to the open-source community for their valuable contributions and support.
+
+## License
+
+This project is licensed under the MIT License. Feel free to modify and use the code as per your requirements.
+
 ## Screenshots
 
 ![flixSync home](https://i.imgur.com/3NmV0VT.png)
