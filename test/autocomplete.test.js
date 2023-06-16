@@ -11,9 +11,9 @@ const waitFor = (selector) => {
     const timeout = setTimeout(() => {
       clearInterval(interval);
       reject();
-    }, 2000); 
-  })
-}
+    }, 2000);
+  });
+};
 
 beforeEach(() => {
   document.querySelector('#target').innerHTML = '';
@@ -43,9 +43,21 @@ it('After searching, dropdown opens up', async () => {
   input.value = 'transformers';
   input.dispatchEvent(new Event('input'));
 
-  await waitFor('.dropdown-item')
+  await waitFor('.dropdown-item');
 
   const dropdown = document.querySelector('.dropdown');
 
   expect(dropdown.className).to.include('is-active');
+});
+
+it('After searching, displays some results', async () => {
+  const input = document.querySelector('input');
+  input.value = 'transformers';
+  input.dispatchEvent(new Event('input'));
+
+  await waitFor('.dropdown-item');
+
+  const items = document.querySelectorAll('.dropdown-item');
+
+  expect(items.length).to.equal(3);
 });
