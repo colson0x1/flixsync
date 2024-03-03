@@ -96,6 +96,29 @@ const runComparison = () => {
   });
 };
 
+function convertToMovieTime(movieTime) {
+  const regex = /^(\d+)\s*min$/;
+
+  const match = movieTime.match(regex);
+
+  if (!match) {
+    return "Invalid input format. Please provide time in the format 'X min'.";
+  }
+
+  const minutes = parseInt(match[1]);
+
+  if (isNaN(minutes) || minutes < 0) {
+    return 'Invalid input. Minutes should be a non-negative number.';
+  }
+
+  const hours = Math.floor(minutes / 60);
+  const remainingMinutes = minutes % 60;
+
+  const formattedTime = `${hours} hr ${remainingMinutes} min`;
+
+  return formattedTime;
+}
+
 const movieTemplate = (movieDetail) => {
   const dollars = parseInt(
     movieDetail.BoxOffice.replace(/\$/g, '').replace(/,/g, ''),
@@ -164,7 +187,7 @@ const movieTemplate = (movieDetail) => {
       <p class="subtitle">IMDB Votes</p>
     </article>
     <article class="notification is-primary article-background">
-      <p class="title">${movieDetail.Runtime}</p>
+      <p class="title">${convertToMovieTime(movieDetail.Runtime)}</p>
       <p class="subtitle">Movie Length</p>
     </article>
   `;
