@@ -1,4 +1,4 @@
-// import { apiKey } from './apiKey.js';
+import { apiKey } from './apiKey.js';
 
 const autoCompleteConfig = {
   renderOption: (movie) => {
@@ -13,8 +13,8 @@ const autoCompleteConfig = {
     return movie.Title;
   },
   fetchData: async (searchQuery) => {
-    const apiKey = await import('./apiKey.js').then((module) => module.apiKey);
-    const response = await axios.get('http://www.omdbapi.com/', {
+    // const apiKey = await import('./apiKey.js').then((module) => module.apiKey);
+    const response = await axios.get('https://www.omdbapi.com/', {
       params: {
         apikey: apiKey,
         s: searchQuery,
@@ -50,7 +50,7 @@ let leftMovie;
 let rightMovie;
 window.onMovieSelect = async (movie, summaryElement, side) => {
   const apiKey = await import('./apiKey.js').then((module) => module.apiKey);
-  const response = await axios.get('http://www.omdbapi.com/', {
+  const response = await axios.get('https://www.omdbapi.com/', {
     params: {
       apikey: apiKey,
       i: movie.imdbID,
@@ -74,10 +74,10 @@ window.onMovieSelect = async (movie, summaryElement, side) => {
 
 const runComparison = () => {
   const leftSideStats = document.querySelectorAll(
-    '#left-summary .notification'
+    '#left-summary .notification',
   );
   const rightSideStats = document.querySelectorAll(
-    '#right-summary .notification'
+    '#right-summary .notification',
   );
 
   leftSideStats.forEach((leftStat, index) => {
@@ -98,7 +98,7 @@ const runComparison = () => {
 
 const movieTemplate = (movieDetail) => {
   const dollars = parseInt(
-    movieDetail.BoxOffice.replace(/\$/g, '').replace(/,/g, '')
+    movieDetail.BoxOffice.replace(/\$/g, '').replace(/,/g, ''),
   );
   const metascore = parseInt(movieDetail.Metascore);
   const imdbRating = parseInt(movieDetail.imdbRating);
